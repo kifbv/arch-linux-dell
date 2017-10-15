@@ -23,8 +23,12 @@ The default is `us` but for e.g. a `uk` layout:
 1. list the available layouts: 
 
 `localectl list-keymaps` or
+
 `ls /usr/share/kbd/keymaps/**/*.map.gz`
-2. load the uk layout: `loadkeys uk`
+
+2. load the uk layout:
+
+`loadkeys uk`
 
 Load a more relevant font: `setfont eurlatgr`
 
