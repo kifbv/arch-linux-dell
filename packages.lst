@@ -1,0 +1,99 @@
+### pacman -Qqd + pacman -Qqe = pacman -Qqm + pacman -Qqn
+### d = installed as dependency
+### e = explicitely installed
+### m = foreign (~ pacaur)
+### n = native (~ pacman)
+### packages groups:
+### (for p in $(pacman -Qqe); do pacman -Qi $p | egrep '^Group' | grep -v None | cut -d: -f2 | tr -s ' ' '\n'; done) | sort -u
+### number of packages in groups:
+### for g in $((for p in $(pacman -Qqe); do pacman -Qi $p | egrep '^Group' | grep -v None | cut -d: -f2 | tr -s ' ' '\n'; done) | sort -u); do pacman -Qqg $g | wc -l; done
+
+### Audio, video, communications
+alsa-utils
+mps-youtube
+mpv (?)
+neomutt
+vivaldi
+vivaldi-ffmpeg-codecs
+
+### Network
+bind-tools
+gnu-netcat
+ngrep
+nmap
+openssh
+rfkill
+rsync
+tcpdump
+wget
+whois
+wpa_actiond
+wpa_supplicant
+
+### Security
+pass
+pwgen
+
+### Code
+diff-so-fancy
+docker (?)
+go
+go-tools
+lua
+python
+python2
+ruby
+vagrant (?)
+virtualbox (?)
+
+### Window management
+dmenu
+
+### System tools
+rxvt-unicode
+urxvt-perls
+urxvt-resize-font-git
+xorg-xfontsel
+xorg-xinit
+xorg-xlsfonts
+dmidecode
+evemu (?)
+htop
+jq
+lesspipe
+lm_sensors
+lsof
+namcap (verifier)
+scrot
+slock
+stow
+tree
+unzip
+zip
+gvim
+
+### Others
+reflector
+screenfetch
+
+### Fonts
+ttf-dejavu
+ttf-inconsolata
+
+### Pacaur
+browserpass
+cower
+nvm
+pacaur
+ttf-monaco
+urxvt-resize-font-git
+
+### [Backup](https://bbs.archlinux.org/viewtopic.php?pid=586731#p586731)
+### pacman -Qqm lists foreign packages; which, for must users, means AUR
+### pacman -Qqe lists packages that were explicitely installed.
+### that said,
+###   pacman -Qqe | grep -v "$(pacman -Qqm)" > pacman.lst
+### and
+###   cat pacman.lst | xargs pacman -S --needed --noconfirm
+### are the best backup/restore lines i've seen (don't remember where i got them tho).
+### that will install only the packages you don't have installed already as well as pull in any needed deps.  after that, -Syu and you're good to go.

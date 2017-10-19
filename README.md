@@ -106,7 +106,7 @@ See https://wiki.archlinux.org/index.php/Ext4#Enabling_metadata_checksums and ma
 ### Install the base packages
 Install the [base](https://www.archlinux.org/groups/x86_64/base/) and [base-devel](https://www.archlinux.org/groups/x86_64/base-devel/) package groups as well as some packages for wireless network configuration, Intel micro-code updates and git:
 
-   `pacstrap /mnt base base-devel dialog git intel-ucode dhcpcd wpa_actiond wpa_supplicant`
+   `pacstrap /mnt base base-devel dialog dhcpcd wpa_actiond wpa_supplicant intel-ucode git`
 
 ## Configure the system
 ### Fstab
@@ -222,28 +222,56 @@ franck ALL=/usr/sbin/visudo
 
    `reboot`
 
-## Configuration
+## System configuration
 
-ToDo:
+Add the following repo to `/etc/pacman.conf` for easy installation of `vivaldi`:
+```Shell
+[herecura]
+Server = https://repo.herecura.be/herecura/x86_64
+```
+ensure that the following options are set:
+```Shell
+HoldPkg = pacman glibc
+Architecture = auto
+Color
+CheckSpace
+VerbosePkgLists
+SigLevel = Required DatabaseOptional
+LocalFileSigLevel = Optional
+```
+and upgrade the system with `sudo pacman -Syu` in order to be able to use it.
+
 add tuning instructions e.g. build in tmpfs (https://wiki.archlinux.org/index.php/Makepkg#Improving_compile_times)
-package list:
-pacaur
-miror list
-stow
-i3
-X
-dmenu, urxvt
-# install xserver and xinit
-# see https://wiki.archlinux.org/index.php/Xinit
-# and https://wiki.archlinux.org/index.php/xorg
-slock
-mutt/neomutt (see stevelosk homely mutt), see guckes.net/neomutt
-evernote? nixnote? geeknote?
 
-also see https://wiki.archlinux.org/index.php/Sysctl and https://wiki.archlinux.org/index.php/Improving_performance
-dotfiles: install all my config files from github and install them with stow
-dmidecode htop iftop
-check sta.li
+### Packages
+Install the following package groups:
+`i3 xorg xorg-apps xorg-drivers`
 
-Fix the layout to have the same as Macbook UK (i.e. use us layout but remap the |\ key next to shift-left to ~`)
+Install the packages in `packages.lst` with pacman and pacaur.
+
+### User configuration
+Clone all the config files from [github/kifbv/dotfiles](https://github.com/kifbv/dotfiles) and install them with stow
+
+### TODO
+Also see https://wiki.archlinux.org/index.php/Sysctl and https://wiki.archlinux.org/index.php/Improving_performance
+Fix the layout to be the same as Macbook UK (i.e. use us layout but remap the |\ key next to shift-left to ~`)
 Relocate files to tmpfs (+ other tips in https://wiki.archlinux.org/index.php/Improving_performance)
+
+## Arch Linux Docs:
+[Installation guide](wiki.archlinux.org/index.php/Installation_guide)
+[Improving performance](https://wiki.archlinux.org/index.php/Improving_performance)
+[Keyboard shortcuts](https://wiki.archlinux.org/index.php/Keyboard_shortcuts#Virtual_console)
+[Keyboard configuration in Xorg](https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg)
+[Map scancodes to keycodes](https://wiki.archlinux.org/index.php/Map_scancodes_to_keycodes)
+[Extra keyboard keys in Xorg](https://wiki.archlinux.org/index.php/Extra_keyboard_keys_in_Xorg#Mapping_keysyms_to_actions)
+[Xbindkeys](https://wiki.archlinux.org/index.php/Xbindkeys)
+[LVM](https://wiki.archlinux.org/index.php/LVM)
+[Mkinitcpio](https://wiki.archlinux.org/index.php/Mkinitcpio#HOOKS)
+[Disk encryption](https://wiki.archlinux.org/index.php/Disk_encryption)
+[Ext4](https://wiki.archlinux.org/index.php/Ext4#Enabling_metadata_checksums)
+[Wireless Network Configuration](https://wiki.archlinux.org/index.php/Wireless_network_configuration)
+
+Broadcom driver for the MacBook
+[](https://wireless.wiki.kernel.org/en/users/Drivers/b43#devicefirmware)
+[](http://www.lwfinger.com/b43-firmware/)
+
