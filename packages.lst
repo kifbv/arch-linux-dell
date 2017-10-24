@@ -10,11 +10,17 @@
 
 ### Audio, video, communications
 alsa-utils
-mps-youtube
-mpv (?)
+### the next 2 will also require sudo pip3 install youtube_dl dbus-python gobject
+mps-youtube # listen to youtube in the terminal
+mpv # player for mps-youtube
+vivaldi # GUI browser
+vivaldi-ffmpeg-codecs # multimedia in vivaldi
+links # view html email in mutt
+
+### Mail
 neomutt
-vivaldi
-vivaldi-ffmpeg-codecs
+#offlineimap
+#notmuch
 
 ### Network
 bind-tools
@@ -31,11 +37,11 @@ wpa_actiond
 wpa_supplicant
 
 ### Security
-pass
-pwgen
+pass # password management
+pwgen # quick password generator
 
 ### Code
-diff-so-fancy
+diff-so-fancy # nicer diffs for git
 docker (?)
 go
 go-tools
@@ -50,43 +56,50 @@ virtualbox (?)
 dmenu
 
 ### System tools
-rxvt-unicode
-urxvt-perls
-urxvt-resize-font-git
+rxvt-unicode # terminal
+urxvt-perls # extra scripts for terminal (e.g. clickable url)
 xorg-xfontsel
 xorg-xinit
 xorg-xlsfonts
 dmidecode
-evemu (?)
+evemu # get system info (e.g. keyboard keycodes)
 htop
 jq
-lesspipe
+lesspipe # colorised less (see alias)
 lm_sensors
 lsof
 namcap (verifier)
-scrot
-slock
-stow
+scrot # screenshots
+slock # screen lock
+stow # dotfiles management
 tree
 unzip
 zip
-gvim
+gvim # rather than vim (to have +clipboard)
 
 ### Others
-reflector
-screenfetch
+reflector # update repos
+screenfetch # quick system info
 
 ### Fonts
 ttf-dejavu
 ttf-inconsolata
 
 ### Pacaur
-browserpass
-cower
-nvm
-pacaur
+asoundconf # to quickly change the default sound output (internal/hdmi)
+browserpass # to retrieve passwords in the browser (also requires browser plugin)
+ccat-git # colorised cat output (see the alias)
+cower # required by pacaur (?)
+goobook-git # address completion & mgmt for mutt
+mons # to manage monitors
+nvm # not sure why I installed it
+pacaur # to manage the AUR
 ttf-monaco
-urxvt-resize-font-git
+ttf-monofur
+urxvt-resize-font-git # resize the terminal fonts with ^-+=
+
+# urlview (not really necessary since already handled with urxvt perl script)
+# slack-desktop
 
 ### [Backup](https://bbs.archlinux.org/viewtopic.php?pid=586731#p586731)
 ### pacman -Qqm lists foreign packages; which, for must users, means AUR
@@ -97,3 +110,10 @@ urxvt-resize-font-git
 ###   cat pacman.lst | xargs pacman -S --needed --noconfirm
 ### are the best backup/restore lines i've seen (don't remember where i got them tho).
 ### that will install only the packages you don't have installed already as well as pull in any needed deps.  after that, -Syu and you're good to go.
+
+### vivaldi extensions
+browserpass
+full page screen capture
+google dictionary
+postman
+rss feed reader (todo: add the feeds here)

@@ -1,9 +1,10 @@
-Notes to myself on how to install Arch Linux on the Dell XPS13 (9360).
+Notes to myself on how to install Arch Linux.
 
-Instructions below are mostly from the Arch Linux [Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide/).
+Instructions below are mostly from the [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide/).
 
-Also tested on:
-- 2008 Macbook Black (ethernet OK, not wifi).
+Tested on:
+- Dell XPS13 (9360)
+- 2008 Macbook Black (search b43 drivers for wifi)
 
 ## Preparation
 Prepare a bootable USB stick with the Arch image on it:
