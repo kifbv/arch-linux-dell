@@ -39,6 +39,8 @@ wpa_supplicant
 ### Security
 pass # password management
 pwgen # quick password generator
+paperkey
+libdmtx
 
 ### Code
 diff-so-fancy # nicer diffs for git
@@ -90,14 +92,16 @@ asoundconf # to quickly change the default sound output (internal/hdmi)
 browserpass # to retrieve passwords in the browser (also requires browser plugin)
 ccat-git # colorised cat output (see the alias)
 cower # required by pacaur (?)
+dmtx-utils # to backup gpg keys (see paperkey)
 goobook-git # address completion & mgmt for mutt
 mons # to manage monitors
 nvm # not sure why I installed it
 pacaur # to manage the AUR
+pandoc-bin # to write markdown emails with mutt
+paperkey # to backup gpg keys (see dmtx-utils)
 ttf-monaco
 ttf-monofur
 urxvt-resize-font-git # resize the terminal fonts with ^-+=
-
 # urlview (not really necessary since already handled with urxvt perl script)
 # slack-desktop
 

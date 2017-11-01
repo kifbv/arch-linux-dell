@@ -52,7 +52,7 @@ Check the disk with `lsblk` or `fdisk -l` and take a note of the device name (`/
 
    `parted -a optimal -- /dev/nvme0n1 mkpart ext4 513MiB 100%`
 
-Don't give a label to the partitions because Luks encryption doesn't support it and it's the UUID that will identify the disk.
+Persistent block device naming for fstab is achieved by using UUID of the disk.
 
 ### Encrypt the Linux partition
 Use [LVM on LUKS](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS).
