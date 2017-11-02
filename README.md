@@ -256,8 +256,11 @@ Install the following package groups:
 Install the packages in `packages.lst` with pacman and pacaur.
 
 ### Enable some services
-- systemd-timesyncd (simple SNTP daemon)
-- docker
+- systemctl enable --now systemd-timesyncd.service# simple SNTP daemon
+- systemctl enable --now docker.service
+- cp /etc/iptables/empty.rules /etc/iptables/iptables.rules && \
+..   systemctl enable --now iptables.service # safety first
+(and see [Simple Statefull Firewall](https://wiki.archlinux.org/index.php/Simple_stateful_firewall) for configuration)
 
 ### User configuration
 Clone all the config files from [github/kifbv/dotfiles](https://github.com/kifbv/dotfiles) and install them with stow
