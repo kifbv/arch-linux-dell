@@ -216,6 +216,11 @@ franck ALL=(ALL) ALL
 # last rule as a safety guard
 franck ALL=/usr/sbin/visudo
 ```
+To add a red blinking prompt for root:  
+First, copy some skeleton files:  
+`cp /etc/skel/.bash_profile /etc/skel/.bashrc /root`  
+And then edit `/root/.bashrc` and set `PS1` to:  
+`PS1="\e[1m\e[91m\e[5m[\u@\h]\$\e[m\e(b "`
 
 ## Reboot
 
@@ -249,6 +254,10 @@ Install the following package groups:
 `i3 xorg xorg-apps xorg-drivers`
 
 Install the packages in `packages.lst` with pacman and pacaur.
+
+### Enable some services
+- systemd-timesyncd (simple SNTP daemon)
+- docker
 
 ### User configuration
 Clone all the config files from [github/kifbv/dotfiles](https://github.com/kifbv/dotfiles) and install them with stow
