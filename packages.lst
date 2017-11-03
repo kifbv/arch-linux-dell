@@ -78,6 +78,7 @@ tree
 unzip
 zip
 gvim # rather than vim (to have +clipboard)
+bash-completion
 
 ### Others
 reflector # update repos
