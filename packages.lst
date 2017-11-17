@@ -3,7 +3,7 @@
 ### e = explicitely installed
 ### m = foreign (~ pacaur)
 ### n = native (~ pacman)
-### packages groups:
+### package groups:
 ### (for p in $(pacman -Qqe); do pacman -Qi $p | egrep '^Group' | grep -v None | cut -d: -f2 | tr -s ' ' '\n'; done) | sort -u
 ### number of packages in groups:
 ### for g in $((for p in $(pacman -Qqe); do pacman -Qi $p | egrep '^Group' | grep -v None | cut -d: -f2 | tr -s ' ' '\n'; done) | sort -u); do pacman -Qqg $g | wc -l; done
@@ -16,6 +16,8 @@ mpv # player for mps-youtube
 vivaldi # GUI browser
 vivaldi-ffmpeg-codecs # multimedia in vivaldi
 links # view html email in mutt
+#bluez # bluetooth
+#bluez-utils
 
 ### Mail
 neomutt
@@ -39,8 +41,8 @@ wpa_supplicant
 ### Security
 pass # password management
 pwgen # quick password generator
-paperkey
-libdmtx
+paperkey # gpg keys archival
+libdmtx # gpg keys archival
 
 ### Code
 diff-so-fancy # nicer diffs for git
@@ -68,7 +70,7 @@ evemu # get system info (e.g. keyboard keycodes)
 htop
 jq
 lesspipe # colorised less (see alias)
-lm_sensors
+lm_sensors # for temperatures
 lsof
 namcap (verifier)
 scrot # screenshots
@@ -78,15 +80,17 @@ tree
 unzip
 zip
 gvim # rather than vim (to have +clipboard)
-bash-completion
+bash-completion # self describing
+fwupd # firmware update daemon
+libnotify # screen notifications
 
 ### Others
 reflector # update repos
 screenfetch # quick system info
 
 ### Fonts
-ttf-dejavu
-ttf-inconsolata
+ttf-dejavu # fonts
+ttf-inconsolata #
 
 ### Pacaur
 asoundconf # to quickly change the default sound output (internal/hdmi)
@@ -100,8 +104,8 @@ nvm # not sure why I installed it
 pacaur # to manage the AUR
 pandoc-bin # to write markdown emails with mutt
 paperkey # to backup gpg keys (see dmtx-utils)
-ttf-monaco
-ttf-monofur
+ttf-monaco # fonts
+ttf-monofur #
 urxvt-resize-font-git # resize the terminal fonts with ^-+=
 # urlview (not really necessary since already handled with urxvt perl script)
 # slack-desktop
@@ -117,8 +121,12 @@ urxvt-resize-font-git # resize the terminal fonts with ^-+=
 ### that will install only the packages you don't have installed already as well as pull in any needed deps.  after that, -Syu and you're good to go.
 
 ### vivaldi extensions
-browserpass
-full page screen capture
-google dictionary
-postman
-rss feed reader (todo: add the feeds here)
+#browserpass # populate login info
+#email this # pdf add-free version of web pages
+#full page screen capture # same as above but produces a jpg
+#google dictionary # select word to get definition
+#postman # helps API development
+#pinterest # use it as a bookmark/todo list
+#rss feed reader (feeds in Feeder.opml) # news
+#ad block plus # add blocker
+#ghostery # tracker blocker
