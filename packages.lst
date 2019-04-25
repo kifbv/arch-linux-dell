@@ -35,13 +35,11 @@ rsync
 tcpdump
 wget
 whois
-wpa_actiond
-wpa_supplicant
 
 ### Security
 pass # password management
 pwgen # quick password generator
-paperkey # gpg keys archival
+paperkey # gpg keys archival (aur?)
 libdmtx # gpg keys archival
 
 ### Code
@@ -97,6 +95,7 @@ asoundconf # to quickly change the default sound output (internal/hdmi)
 browserpass # to retrieve passwords in the browser (also requires browser plugin)
 ccat-git # colorised cat output (see the alias)
 cower # required by pacaur (?)
+direnv # directory specific environment (for python venv)
 dmtx-utils # to backup gpg keys (see paperkey)
 goobook-git # address completion & mgmt for mutt
 mons # to manage monitors

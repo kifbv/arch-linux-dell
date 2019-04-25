@@ -253,7 +253,10 @@ add tuning instructions e.g. build in tmpfs (https://wiki.archlinux.org/index.ph
 Install the following package groups:
 `i3 xorg xorg-apps xorg-drivers`
 
-Install the packages in `packages.lst` with pacman and pacaur.
+#### Install yay (AUR package helper)
+`git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si`
+
+Install the packages in `packages.lst` with pacman and yay.
 
 ### Enable some services
 - systemctl enable --now systemd-timesyncd.service# simple SNTP daemon
