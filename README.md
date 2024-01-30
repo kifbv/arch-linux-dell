@@ -1,20 +1,19 @@
 Notes to myself on how to install Arch Linux.
 
-Instructions below are mostly from the [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide/).
+Instructions below mostly from the [Arch Linux Installation Guide](https://wiki.archlinux.org/index.php/Installation_guide/).
 
-Tested on:
-- Dell XPS13 (9360)
-- 2008 Macbook Black (search b43 drivers for wifi)
+Tested on Dell XPS13 (9360).
 
 ## Preparation
 Prepare a bootable USB stick with the Arch image on it:
 
-1. download the latest Arch Linux ISO image from the [Arch Linux Downloads](https://www.archlinux.org/download/) page
-1. format a USB stick (FAT format, MBR partition table)
-1. copy the ISO image to the stick: `sudo dd if=<path_to_iso> of=<path_to_usb_device> bs=1m`
-1. alternatively, have a look at [etcher](https://etcher.io/) which automates all this
-1. insert the bootable USB stick, boot the computer and enter the BIOS to disable 'safe boot'
-1. re-boot and select Arch Linux in the boot menu (Dell XPS13: press F12 to get the boot menu)
+1. download the latest Arch Linux ISO image and its signature from the [Arch Linux Downloads](https://archlinux.org/download/) page
+1. verify the image integrity: `gpg --keyserver-options auto-key-retrieve --verify archlinux-version-x86_64.iso.sig`
+1. format a USB stick (FAT format, MBR partition table) or use something like [ventoy](https://www.ventoy.net/en/index.html)
+  - formatted stick: copy the ISO image to the stick: `cp path/to/archlinux.iso /dev/disk/by-id/usb-xxxx`
+  - ventoy: copy the ISO image to the stick: `cp path/to/archlinux.iso path/to/usb/stick`
+1. reboot the computer, enter the BIOS, and disable 'safe boot' (if on Linux with systemd: run `systemctl reboot --firmware-setup` should present you with the boot menu directly)
+1. reboot and select Arch Linux in the boot menu (Dell XPS13: press F12 to get the boot menu)
 
 ## Pre-installation
 Note: in case of SQUASHFS errors during installation, it probably means that the USB device is not good so try another one.
@@ -264,6 +263,11 @@ Install the packages in `packages.lst` with pacman and pacaur.
 
 ### User configuration
 Clone all the config files from [github/kifbv/dotfiles](https://github.com/kifbv/dotfiles) and install them with stow
+
+Plus:
+- wayland support, prompt (see [here](https://github.com/sapegin/dotfiles/blob/dd063f9c30de7d2234e8accdb5272a5cc0a3388b/includes/bash_prompt.bash) and [here](https://code.mendhak.com/simple-bash-prompt-for-developers-ps1-git/) and [here](https://github.com/sindresorhus/pure) too.
+- install [fonts](https://www.programmingfonts.org/#hack)
+- finish qmk config
 
 ### TODO
 Also see https://wiki.archlinux.org/index.php/Sysctl and https://wiki.archlinux.org/index.php/Improving_performance
