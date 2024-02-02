@@ -28,13 +28,24 @@ The default is `us` but for e.g. a `uk` layout:
 
     `loadkeys uk`
 
-Load a more relevant font: `setfont eurlatgr`
+~Load a more relevant font: `setfont eurlatgr`~
+
 
 ### Connect to the internet
-Run `wifi-menu`, or refer to [Network configuration](https://wiki.archlinux.org/index.php/Network_configuration) or [Wireless network configuration](https://wiki.archlinux.org/index.php/Wireless_network_configuration) if that doesn't work.
+~Run `wifi-menu`, or refer to [Network configuration](https://wiki.archlinux.org/index.php/Network_configuration) or [Wireless network configuration](https://wiki.archlinux.org/index.php/Wireless_network_configuration) if that doesn't work.~
+add /etc/iwd/main.conf with the following for DHCP:
+[network]
+EnableNetworkConfiguration=true
+ip link to check the network interface is listed and up
+iwctl to get an interactive prompt; then device list; turn on if necessary with device <device> set-property Powered on (same with adapter if necessary); scan with station <device> scan; list available networks with station <device> get-networks; connect with station <device> connect <SSID>
+ping -4 archlinux.org to verify connection ok
+
 
 ### Update the system clock
 `timedatectl set-ntp true`
+
+### Optimize logical sector size (for NVMe drives)
+
 
 ### Partition the disk
 Check the disk with `lsblk` or `fdisk -l` and take a note of the device name (`/dev/nvme0n1` on the Dell XPS13)
@@ -107,7 +118,8 @@ See https://wiki.archlinux.org/index.php/Ext4#Enabling_metadata_checksums and ma
 Install the [base](https://www.archlinux.org/groups/x86_64/base/) and [base-devel](https://www.archlinux.org/groups/x86_64/base-devel/) package groups as well as some packages for wireless network configuration, Intel micro-code updates and git:
 
    `pacstrap /mnt base base-devel dialog dhcpcd wpa_actiond wpa_supplicant intel-ucode git`
-
+   `pacstrap /mnt base base-devel linux linux-firmware intel-ucode iwd lvm2`
+ sway foot waybar wofi vim brave
 ## Configure the system
 ### Fstab
 Create the `fstab` file:
